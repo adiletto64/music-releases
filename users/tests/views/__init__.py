@@ -1,0 +1,2 @@
+from .sign_up_view_test import SignUpViewTest
+from .create_profile_currency_view_test import CreateProfileCurrencyViewTest

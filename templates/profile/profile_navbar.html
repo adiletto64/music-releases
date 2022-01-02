@@ -1,0 +1,27 @@
+<ul class="nav nav-tabs mt-3 mb-4">
+  <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.view_name == 'profile_edit' %}active{% endif %}" aria-current="page"
+       href="{% url 'profile_edit' %}">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if request.resolver_match.view_name == 'currencies_list' %}active{% endif %}"
+       href="{% url 'currencies_list' %}">Currencies</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link
+      {% if request.resolver_match.view_name in "'users_label_list','label_add','label_update','label_delete'" %}
+        active
+      {% endif %}"
+       href="{% url 'users_label_list' %}">Labels</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'submissions' %}">Submissions</a>
+
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{% url 'invitations' %}">Invitations</a>
+  </li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'trade_requests' %}">Trade requests</a>
+  </li>
+</ul>

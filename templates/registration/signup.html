@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+  <div class="row mt-4 mb-2">
+    <div class="col text-center">
+      <h2>Sign Up</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-2 mb-2">
+    <div class="col-4">
+      <form method="post" autocomplete="off">
+        {% if form.non_field_errors %}
+          <p>{{ form.non_field_errors }}</p>
+        {% endif %}
+
+        <div class="mb-1">
+          {% include 'common/_form_field.html' with field=form.main_label_name|attr:"autofocus" only %}
+        </div>
+
+        <div class="mb-1">
+          {% include 'common/_form_field.html' with field=form.country|attr:"class:form-select" only %}
+        </div>
+
+        <div class="mb-1">
+          {% include 'common/_form_field.html' with field=form.name only %}
+        </div>
+
+        <div class="mb-1">
+          {% include 'common/_form_field.html' with field=form.email|remove_attr:"autofocus" only %}
+        </div>
+
+        <div class="mb-1">
+          <label for="{{ form.password1.auto_id }}" class="form-label">
+            {{ form.password1.label }}
+          </label>
+          {% if form.password2.errors %}
+            {{ form.password1|add_class:"is-invalid"|add_class:"form-control" }}
+            <div class="invalid-feedback">
+              {% for error in form.password2.errors %}
+                {{ error|escape }}
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.password1|add_class:"form-control" }}
+            <div class="form-text">{{ form.password1.help_text }}</div>
+          {% endif %}
+        </div>
+
+        <div class="mb-1">
+          <label for="{{ form.password2.auto_id }}" class="form-label">
+            {{ form.password2.label }}
+          </label>
+          {{ form.password2|add_error_class:"is-invalid"|add_class:"form-control" }}
+          {% if form.password2.errors %}
+            <div class="invalid-feedback">
+              {% for error in form.password2.errors %}
+                {{ error|escape }}
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="form-text">{{ form.password2.help_text }}</div>
+          {% endif %}
+        </div>
+
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+      </form>
+    </div>
+  </div>
+{% endblock content %}

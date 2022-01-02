@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Notifications{% endblock title %}
+
+{% block content %}
+  {% include 'profile/profile_navbar.html' %}
+    <div class="row">
+        {% for notification in notifications %}
+            <a href="{% url 'notif_redirect' notification.id %}">
+                <div class="col-8 bd-callout bd-callout-info">
+                    <h4>{{ notification.message }}</h4>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

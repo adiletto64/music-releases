@@ -1,0 +1,33 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+dj-database-url = "*"
+psycopg2 = "*"
+gunicorn = "*"
+whitenoise = "*"
+pycountry = "*"
+django-filter = "*"
+openpyxl = "*"
+django-factory-boy = "*"
+django-extensions = "*"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
+django-countries = "*"
+pillow = "*"
+phonenumbers = "*"
+django-phonenumber-field = "*"
+django-postman = "*"
+django-widget-tweaks = "*"
+sentry-sdk = "*"
+
+[dev-packages]
+ptpython = "*"
+coverage = "*"
+ipython = "*"
+
+[requires]
+python_version = "3.9"
